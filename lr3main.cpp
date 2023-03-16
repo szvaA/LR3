@@ -24,7 +24,7 @@ int main()
         cout << "Введите координаты второго вектора: ";
         for (int i = 0; i < dimension; i++)
             cin >> vector2[i];
-        vector.scalar(doble* vector1, double* vector2);
+        vector.scalar(double* vector1, double* vector2);
         //они не выводятся
     }
 
