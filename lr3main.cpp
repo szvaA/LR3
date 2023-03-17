@@ -4,29 +4,45 @@ using namespace std;
 
 int main()
 {
-    int dimension;
-    double *vector1;
-    double *vector2;
-    double *vector;
+    int dim1, dim2;
+    double *vec2;
     while (true) {
-        cout << "Введите размерность: ";
-        cin >> dimension;
-        if (dimension == 0) break;
-        if (dimension < 0) {
+        cout << "Введите размерность первого вектора: ";
+        cin >> dim1;
+        cout << "Введите размерность второго вектора: ";
+        cin >> dim2;
+        if (dim1 == 0 || dim2 == 0) break;
+        if (dim1 < 0 || dim2 < 0) {
             cout << "Введена некоректная размерность. Введите снова. ";
             continue;
         }
-        vector1 = new double[dimension];
-        vector2 = new double[dimension];
+        vec1 = new double[dim1];
+        vec2 = new double[dim2];
         cout << "Введите координаты первого вектора: ";
-        for (int i = 0; i < dimension; i++)
-            cin >> vector1[i];
+        for (int i = 0; i < dim1; i++)
+            cin >> vec1[i];
         cout << "Введите координаты второго вектора: ";
-        for (int i = 0; i < dimension; i++)
-            cin >> vector2[i];
-        vector.scalar(double* vector1, double* vector2);
-        //они не выводятся
+        for (int i = 0; i < dim2; i++)
+            cin >> vec2[i];
+
     }
+    CVector vec1;
+    CVector vec2;
+    double scalars = scalar(vec1, vec2);
+    cout << "Скалярное проивездение: "<< scalars << endl;
+
+    float mod1 = vec1.mod();
+    cout << "Модуль первого вектора: "<< mod1 << endl;
+    float mod2 = vec2.mod();
+    cout << "Модуль второго вектора: "<< mod2 << endl;
+
+    cout << "Сумма векторов: "<< endl;
+    summ(vec1, vec2);
+
+    cout << "Разность векторов: " << endl;
+    diff(vec1, vec2);
+
+
 
     return 0;
 }
