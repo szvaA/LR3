@@ -3,9 +3,9 @@ class CVector{
     friend double scalar(const CVector& , const CVector& );
     friend void summ(const CVector&, const CVector& );
     friend void diff(const CVector& , const CVector& );
-private:
-    float mod();
-    float addit(const CVector&, const CVector& );
+//private:
+    //float mod();
+    //float addit(const CVector&, const CVector& );
 protected:
     int m_size;
     double *m_pdata;
@@ -17,6 +17,8 @@ public:
     bool copy(int size, double *pdata);
     bool copy(const CVector &v);
     void out();
+    float mod();
+    float addit(const CVector&, const CVector& );
 protected:
     void init();
 };

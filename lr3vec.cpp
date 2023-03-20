@@ -26,20 +26,35 @@ double scalar(const CVector& vec1, const CVector& vec2)
     return scal;
 }
 float CVector::mod(){
-    double m = scalar(*this, *this);
+    float m = scalar(*this, *this);
     return sqrt(m);
 }
-void summ(const CVector& vec1, const CVector& vec2){
-    int
+float CVector::addit(const CVector &, const CVector &) {
 }
-//void CVector::out()
-//{
-//    cout << "Num: " << m_size << " Data: ";
-//    for (int i=0; i<m_size; i++){
-//        cout << m_pdata[i] << ' ';
-//    }
-//    cout << endl;
-//}
+void summ(const CVector& vec1, const CVector& vec2){
+    int a = max(vec1.m_size, vec2.m_size);
+    double* su = new double[a];
+    for(int i = 0; i < a; i ++)
+        su[i] = vec1.m_pdata[i] + vec2.m_pdata[i];
+    CVector v(a, su);
+    v.out();
+}
+void diff(const CVector& vec1, const CVector& vec2){
+    int a = max(vec1.m_size, vec2.m_size);
+    double* su = new double[a];
+    for(int i = 0; i < a; i ++)
+        su[i] = vec1.m_pdata[i] - vec2.m_pdata[i];
+    CVector v(a, su);
+    v.out();
+}
+void CVector::out()
+{
+    cout << "Num: " << m_size << " Data: ";
+    for (int i=0; i<m_size; i++){
+        cout << m_pdata[i] << ' ';
+    }
+    cout << endl;
+}
 void CVector::init(){
     m_size = 0;
     m_pdata = nullptr;
