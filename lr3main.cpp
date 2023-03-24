@@ -9,9 +9,10 @@ int main()
     while (true) {
         cout << "Введите размерность первого вектора: ";
         cin >> dim1;
+        if (dim1 == 0) break;
         cout << "Введите размерность второго вектора: ";
         cin >> dim2;
-        if (dim1 == 0 || dim2 == 0) break;
+        if (dim2 == 0) break;
         if (dim1 < 0 || dim2 < 0) {
             cout << "Введена некоректная размерность. Введите снова. ";
             continue;

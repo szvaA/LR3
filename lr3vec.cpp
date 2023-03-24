@@ -16,7 +16,7 @@ CVector::CVector(const CVector &v){
     init();
     copy(v);
 }
-double scalar(const CVector& vec1, const CVector& vec2)
+double scalar(const CVector& vec1, const CVector& vec2) //скалярное произведение
 {
     float scal = 0;
     int a = min(vec1.m_size, vec2.m_size);
@@ -25,31 +25,43 @@ double scalar(const CVector& vec1, const CVector& vec2)
     }
     return scal;
 }
-float CVector::mod(){
+float CVector::mod(){ //модуль
     float m = scalar(*this, *this);
     return sqrt(m);
 }
-float CVector::addit(const CVector &, const CVector &) {
-}
-void summ(const CVector& vec1, const CVector& vec2){
+
+void summ(const CVector& vec1, const CVector& vec2){ //сумма
     int a = max(vec1.m_size, vec2.m_size);
-    double* su = new double[a];
+    if (vec1.m_size < vec2.m_size)
+        for (int i = vec2.m_size - vec1.m_size; i < vec2.m_size; i ++)
+            vec1.m_pdata[i] = vec1.m_pdata[i] + 0;
+    else
+        for (int i = vec1.m_size - vec2.m_size; i < vec1.m_size; i ++)
+            vec2.m_pdata[i] = vec2.m_pdata[i] + 0;
+    double* k = new double[a];
     for(int i = 0; i < a; i ++)
-        su[i] = vec1.m_pdata[i] + vec2.m_pdata[i];
-    CVector v(a, su);
+        k[i] = vec1.m_pdata[i] + vec2.m_pdata[i];
+    CVector v(a, k);
     v.out();
 }
-void diff(const CVector& vec1, const CVector& vec2){
+void diff(const CVector& vec1, const CVector& vec2){ //разность
     int a = max(vec1.m_size, vec2.m_size);
-    double* su = new double[a];
+    if (vec1.m_size < vec2.m_size)
+        for (int i = vec2.m_size - vec1.m_size; i < vec2.m_size; i ++)
+            vec1.m_pdata[i] = vec1.m_pdata[i] + 0;
+    else
+        for (int i = vec1.m_size - vec2.m_size; i < vec1.m_size; i ++)
+            vec2.m_pdata[i] = vec2.m_pdata[i] + 0;
+    double* k = new double[a];
     for(int i = 0; i < a; i ++)
-        su[i] = vec1.m_pdata[i] - vec2.m_pdata[i];
-    CVector v(a, su);
+        k[i] = vec1.m_pdata[i] - vec2.m_pdata[i];
+    CVector v(a, k);
     v.out();
 }
+
 void CVector::out()
 {
-    cout << "Num: " << m_size << " Data: ";
+    //cout << "Data: ";
     for (int i=0; i<m_size; i++){
         cout << m_pdata[i] << ' ';
     }
@@ -90,3 +102,26 @@ bool CVector::copy(const CVector &v){
     if (this == &v) return true;
     return copy(v.m_size, v.m_pdata);
 }
+
+
+
+
+
+
+
+//float CVector::addit(const CVector &, const CVector &) {
+//}
+
+//float addit(const CVector&, const CVector& );
+//"Num: " << m_size <<
+//float CVector::addit(const CVector& vec1, const CVector& vec2) {
+//    double j;
+//    cout << "Введите число: " << endl;
+//    cin >> j;
+//    int sizeV1 = vec1.m_size;
+//    int sizeV2 = vec2.m_size;
+//    double j = new double[sizeV1];
+//    double* f1 = new double[sizeV1];
+//    for(int i = 0; i < sizeV1; i ++)
+//
+//}

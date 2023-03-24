@@ -5,7 +5,6 @@ class CVector{
     friend void diff(const CVector& , const CVector& );
 //private:
     //float mod();
-    //float addit(const CVector&, const CVector& );
 protected:
     int m_size;
     double *m_pdata;
@@ -18,7 +17,6 @@ public:
     bool copy(const CVector &v);
     void out();
     float mod();
-    float addit(const CVector&, const CVector& );
 protected:
     void init();
 };
