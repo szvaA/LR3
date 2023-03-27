@@ -60,24 +60,24 @@ void diff(const CVector& vec1, const CVector& vec2){ //разность
 }
 
 void CVector::out()
-{
-    //cout << "Data: ";
-    for (int i=0; i<m_size; i++){
-        cout << m_pdata[i] << ' ';
+    {
+        //cout << "Data: ";
+        for (int i=0; i<m_size; i++){
+            cout << m_pdata[i] << ' ';
+        }
+        cout << endl;
     }
-    cout << endl;
-}
-void CVector::init(){
-    m_size = 0;
-    m_pdata = nullptr;
-}
-void CVector::clear(){
-    if (m_pdata) delete [] m_pdata;
-    init();
-}
-bool CVector::copy(int size, double *pdata){
-    if (pdata == m_pdata ) return true;
-    double *pd=nullptr;
+    void CVector::init(){
+        m_size = 0;
+        m_pdata = nullptr;
+    }
+    void CVector::clear(){
+        if (m_pdata) delete [] m_pdata;
+        init();
+    }
+    bool CVector::copy(int size, double *pdata){
+        if (pdata == m_pdata ) return true;
+        double *pd=nullptr;
     if (size)
     {
         pd = new double[size];

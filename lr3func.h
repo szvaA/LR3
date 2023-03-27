@@ -3,8 +3,6 @@ class CVector{
     friend double scalar(const CVector& , const CVector& );
     friend void summ(const CVector&, const CVector& );
     friend void diff(const CVector& , const CVector& );
-//private:
-    //float mod();
 protected:
     int m_size;
     double *m_pdata;
